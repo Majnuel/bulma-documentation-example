@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Documentation Page exercise</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+
+    <nav id="navbar">
+        <header>
+            <div>
+                <img src="https://bulma.io/images/bulma-logo.png" alt="">
+            </div>
+            <h1>Bulma: CSS Framework</h1>
+        </header>
+        <a href="#start" class="nav-link">Start</a>
+        <a href="#css_classes" class="nav-link">CSS classes</a>
+        <a href="#modifiers_syntax" class="nav-link">Modifiers syntax</a>
+        <a href="#responsiveness" class="nav-link">Responsiveness</a>
+        <a href="#modularity" class="nav-link">Modularity</a>
+        <a href="#mixins" class="nav-link">Mixins</a>
+    </nav>
+
+    <main id="main-doc">
+        <section class="main-section" id="start">
+            <header class="header-content">Start</header>
+                <h5>You only need <strong>1 CSS file</strong> to use Bulma</h5>
+            <p>There are several ways to get started with Bulma. You can either: </p>
+            <ol>
+                <li>use npm to install the Bulma package</li>
+                <li>use the jsDelivr CDN to link to the Bulma stylesheet</li>
+                <li>use the GitHub repository to get the latest development version</li>
+            </ol>
+            <p>1. Use NPM (recommended): </p>
+            <code>npm install bulma</code>
+            <p>2. Use the jsDelivr CDN:</p>
+            <a href="https://www.jsdelivr.com/package/npm/bulma">https://www.jsdelivr.com/package/npm/bulma</a>
+            <p>3. Download from the repository:</p>
+            <a href="https://github.com/jgthms/bulma/tree/master/css">https://github.com/jgthms/bulma/tree/master/css</a>
+            <h4>Code requirements</h4>
+            <p>Use the HTML5 doctype</p>
+            <code>&lt;!DOCTYPE html&gt;</span></code>
+            <h4>Add the responsive viewport meta tag</h4>
+            <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code>
+            <h4>bulma-start</h4>
+            <p><code>bulma-start</code> is a tiny npm package that includes the <code>npm</code> ependencies you need to build your own website with Bulma. </p>
+        </section>
+
+        <section class="main-section" id="css_classes">
+            <header class="header-content">CSS classes</header>
+                <h5>Bulma is simply a <strong>collection</strong> of css classes. Write the HTML code you want</h5>
+            <p>Bulma is a CSS framework, meaning that the end result is simply a single <code>.css</code> file: <a href="https://github.com/jgthms/bulma/blob/master/css/bulma.css">https://github.com/jgthms/bulma/blob/master/css/bulma.css</a></p>
+            <p>Because Bulma solely comprises CSS classes, the HTML code you write has no impact on the styling of your page. That's why <code>.input</code> exists as a class, so you can choose which <code>&lt;input type="text"&gt;</code> elements you want to style.</p>
+            <p>Bulma only styles generic tags directly twice: </p>
+            <ul>
+                <li><code>generic.sass</code> to define a basic style for your page </li>
+                <li>the <code>.content</code> <strong>class</strong> to use for any textual content, like WYSIWYG </li>
+            </ul>
+        </section>
+
+        <section class="main-section" id="modifiers_syntax">
+            <header class="header-content">Modifiers syntax</header>
+                <h5>Most Bulma elements have <strong>alternative</strong> styles. To apply them, you only need to append one of the <strong>modifier classes</strong>. They all start with <code>is-</code> or <code>has-</code></h5>
+            <div class="flex">
+                <p>Let's start with a simple button that uses the "button" CSS class:</p>
+                <a href="" class="button ezio">Button</a>
+            </div>
+            <div class="flex">
+                <p>By adding the <code>is-primary</code> CSS class, you can modify the color:</p>
+                <a href="" class="button is-primary ezio">Button</a>
+            </div>
+            <p>There are several styles to choose from:</p>
+            <ul>
+                <li>Color</li>
+                <li>Size</li>
+                <li>State</li>
+                <li>Combinations of the previous</li>
+            </ul>
+        </section>
+
+        <section class="main-section" id="modularity">
+            <header class="header-content">Modularity</header>
+                <h5>Just import what you <strong>need</strong></h5>
+            <p> Bulma consists of 39 <code>.sass</code> files that you can import <strong>individually</strong>. For example, let's say you only want the Bulma <strong>columns</strong>. The file is located in the <code>bulma/sass/grid</code> folder. Simply <strong>import</strong> the utilities dependencies, and then the files you need directly: </p>
+            <pre><code>@import "bulma/sass/utilities/_all.sass"
+@import "bulma/sass/grid/columns.sass"</code></pre>
+            <p>Now you can use the classes .columns (for the container) and .column directly</p>
+            <p>What if you only want the button styles instead? </p>
+            <pre><code>@import "bulma/sass/utilities/_all.sass"
+@import "bulma/sass/elements/button.sass"</code></pre>
+            <p>You can now use the <code>.button</code> class, and all its modifiers...</p>
+        </section>
+
+        <section class="main-section" id="responsiveness">
+            <header class="header-content">Responsiveness</header>
+                <h5>Bulma is a <strong>mobile-first</strong> framework</h5>
+            <h4> Vertical by default</h4>
+            <p>Every element in Bulma is <strong>mobile-first</strong> and optimizes for <strong>vertical reading</strong>, so by default on mobile: </p>
+            <ul>
+                <li>columns are stacked vertically</li>
+                <li>the level component will show its children stacked vertically</li>
+                <li>the nav menu will be hidden</li>
+            </ul>
+            <p>You can however enforce the horizontal layout for both columns or level by appending the <code>is-mobile</code> modifier.</p>
+            <h4>Breakpoints</h4>
+            <p>Bulma has 5 breakpoints:</p>
+            <ul>
+                <li>mobile: up to 768px</li>
+                <li>tablet: from 769px</li>
+                <li>desktop: from 1024px</li>
+                <li>widescreen: from 1216px</li>
+                <li>fullhd: from 1408px</li>
+            </ul>
+        </section>
+
+        <section class="main-section" id="mixins">
+            <header class="header-content">Mixins</header>
+                <h5>Utility mixins for custom elements and responsive helpers</h5>
+            <table class="table is-bordered">
+                <tr>
+                    <td><code>=arrow($color)</code></td>
+                    <td>Creates a CSS-only down arrow. Used for the dropdown select.</td>
+                </tr>
+                <tr>
+                    <td><code>=block</code></td>
+                    <td>Defines a margin-bottom of 1.5rem, except when the element is the last child. Used for almost all block elements.</td>
+                </tr>
+                <tr>
+                    <td><code>=delete</code></td>
+                    <td>Creates a CSS-only cross. Used for the delete element in modals, messages, tags...</td>
+                </tr>
+                <tr>
+                    <td><code>=hamburger($dimensions)</code></td>
+                    <td>Creates a CSS-only hamburger menu with 3 bars. Used for the "nav-toggle".</td>
+                </tr>
+                <tr>
+                    <td><code>=overflow-touch</code></td>
+                    <td> 	Sets the style of a container so that it keeps momentum when scrolling on iOS devices.</td>
+                </tr>
+                <tr>
+                    <td><code>=overlay($offset: 0)</code></td>
+                    <td>Makes the element overlay its parent container, like the transparent modal background.</td>
+                </tr>
+                <tr>
+                    <td>more on:</td>
+                    <td><a href="https://bulma.io/documentation/overview/mixins/">https://bulma.io/documentation/overview/mixins/</a></td>
+                </tr>
+            </table>
+        </section>
+
+
+    </main>
+
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+</body>
+</html>
